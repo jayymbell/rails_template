@@ -1,0 +1,29 @@
+<div class="row">
+<div class="col-sm-4 offset-sm-4">
+<div class="card login-card">
+  <div class="card-header">
+    Welcome!
+  </div>
+  <div class="card-body">
+    <%= form_for(:session) do |f| %>
+        <div class="field">
+            <%= f.text_field :email, class: 'form-control', autofocus: true, placeholder: 'Email' %>
+        </div>
+        <div class="field">
+            <%= f.password_field :password, class: 'form-control', autofocus: true, placeholder: 'Pasword' %>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <%= f.submit 'Login', class: 'btn btn-outline-primary form-control', style: 'margin-top: 20px;' %>
+                <br/>
+                <span class="float-right" style="margin-top: 10px;">
+                    <%= link_to 'Forgot password?', new_password_reset_path%>
+                </span>
+            </div>
+        </div>
+    <%end%>
+  </div>
+</div>
+</div>
+</div>
+

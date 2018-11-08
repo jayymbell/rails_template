@@ -1,0 +1,36 @@
+<div class="container-fluid">
+<%= form_with(model: @group, remote: true) do |form| %>
+  <div class="input-group mb-3" style="margin-top: 20px;">
+  <%= form.hidden_field :add_user, id: "group_add_user"%>
+  <%= form.text_field :available_users, id: 'group_available_users', data: { autocomplete_source: @available_users}%>
+    <div class="input-group-append">
+      <%= form.button  class: "btn btn-success" do %>
+        <i class="fa fa-plus"></i>
+      <%end%>
+    </div>
+  </div>
+<%end%>
+<table class="table table-striped" style="margin-top: 10px;">
+    <thead>
+        <th>Name</th>
+        <th>Email</th>
+        <th></th>
+    </thead>
+    <tbody>
+    <%@group.users.each do |user|%>
+      <tr>
+      <td><%= user.last_name_first_name%></td>
+      <td><%= user.email%></td>
+      <td>
+      <%= form_with(model: @group, remote: true) do |form| %>
+        <%= form.hidden_field :remove_user, id: "group_remove_user", value: user.id %>
+        <%= form.button  class: "btn btn-link float-right" do %>
+          <i class="fa fa-trash text-danger"></i>
+        <%end%>
+        <%end%>
+      </td>
+      </tr>
+    <%end%>
+    </tbody>
+</table>
+</div>

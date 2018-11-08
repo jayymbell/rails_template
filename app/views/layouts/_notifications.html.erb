@@ -1,0 +1,5 @@
+<% flash.each do |message_type, message| %>
+    <div class="notification alert alert-square alert-<%= message_type %>" style="border-radius: 0px;">
+        <%= message %>
+    </div>
+<% end %>

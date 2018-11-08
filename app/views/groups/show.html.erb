@@ -1,0 +1,50 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="actions float-right">
+    <%= link_to 'Back', groups_path, class: 'btn btn-link btn-sm' %>
+      <%= link_to 'Edit', edit_group_path(@group), class: 'btn btn-link btn-sm', remote: true %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="field">
+      <strong>Name</strong>
+      <br/>
+      <%= @group.name %>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="field">
+      <strong>Description</strong>
+      <br>
+      <%= @group.description %>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="margin-top: 20px;">
+  <div class="col-sm-12">
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <a class="nav-link active" id="users-tab" data-toggle="tab" href="#users" role="tab" aria-controls="users" aria-selected="true">Members</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" id="permissions-tab" data-toggle="tab" href="#permissions" role="tab" aria-controls="permissions" aria-selected="true">Permissions</a>
+      </li>
+    </ul>
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="users" role="tabpanel" aria-labelledby="users-tab">
+        <%= render 'users'%>
+      </div>
+      <div class="tab-pane" id="permissions" role="tabpanel" aria-labelledby="permissions-tab">
+        <%= render 'permissions'%>
+      </div>
+    </div>
+  </div>
+</div>
+

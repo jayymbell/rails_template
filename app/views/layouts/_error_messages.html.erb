@@ -1,0 +1,15 @@
+<% if defined? object%>
+    <% if object.errors.any? %>
+        <div class="card border-danger">
+            <div class="card-header bg-danger border-danger text-white"><i class="fa fa-ban"></i> <b><%= pluralize(object.errors.count, "Error") %>: </b>
+            </div>
+            <div class="card-body text-danger">
+                <ul>
+                    <% object.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                </ul>
+            </div>
+        </div>
+    <% end %>
+<%end%>

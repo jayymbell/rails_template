@@ -1,0 +1,28 @@
+<div class="row">
+    <div class="col-sm-4 offset-sm-4">
+        <div class="card reset-card">
+            <div class="card-header">
+                Password Reset
+            </div>
+            <div class="card-body">
+                <%= form_for(@user, url: password_reset_path(params[:id])) do |f| %>
+
+                    <%= render 'layouts/error_messages', object: f.object %>
+                    
+                    <%= hidden_field_tag :email, @user.email %>
+
+                    <div class="field">
+                        <%= f.label :password %>
+                        <%= f.password_field :password, id: :person_password %>
+                    </div>
+
+                    <div class="field">
+                        <%= f.label :password_confirmation %>
+                        <%= f.password_field :password_confirmation, id: :person_password_confirmation %>
+                    </div>
+                   <%= f.submit 'Submit', class: 'btn btn-outline-primary form-control', style: 'margin-top: 20px;' %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

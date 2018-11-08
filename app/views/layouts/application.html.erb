@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsTemplate</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'layouts/header'%>
+    <%if logged_in?%>
+      <%= render 'layouts/sidebar'%>
+    <%end%>
+    <%= render 'layouts/notifications'%>
+    <div class="container-fluid">
+      <br/>
+      <%= yield %>
+    </div>
+    <%= render '/layouts/modal' %>
+  </body>
+</html>

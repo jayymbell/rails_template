@@ -1,0 +1,38 @@
+<%= form_with(model: @group) do |form| %>
+<div class="row" style="margin-top: 20px;">
+  <div class="col-sm-12">
+    <div class="actions float-right">
+      <%= form.submit 'Submit', class: 'btn btn-link btn-sm' %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-3">
+    <div class="card">
+      <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <% Permission.select(:subject).map(&:subject).uniq.each do |subject|%>
+          <a class="nav-link<%if subject == params[:view] || (params[:view].nil? && subject == "users")%> active<%end%>"" id="v-pills-<%= subject.capitalize %>-tab" data-toggle="pill" href="#v-pills-<%= subject.capitalize %>" role="tab" aria-controls="v-pills-<%= subject.capitalize %>"><%= subject.capitalize %></a>
+        <%end%>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="tab-content" id="v-pills-tabContent">
+        <% Permission.select(:subject).map(&:subject).uniq.each do |subject|%>
+          <div class="tab-pane fade show<%if subject == params[:view] || (params[:view].nil? && subject == "users")%> active<%end%>"" id="v-pills-<%= subject.capitalize %>" role="tabpanel" aria-labelledby="v-pills-<%= subject.capitalize %>-tab">
+            <div class="card">
+             
+                <%= form.collection_check_boxes(:permission_ids, Permission.where(subject: subject), :id, :action, boolean_style: :inline) do |p| %>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+              <%= p.check_box %> <%= p.text.capitalize %> 
+            </li>
+          </ul>
+        <%end%>
+            </div>
+          </div>
+        <%end%>
+      </div>
+  </div>
+</div>
+<%end%>

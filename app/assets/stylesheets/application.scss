@@ -1,0 +1,99 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+ @import "bootstrap";
+ @import "font-awesome";
+
+ .caret-off::before {
+    display: none;
+}
+.caret-off::after {
+    display: none;
+}
+
+.ml-auto .dropdown-menu {
+    left: auto !important;
+    right: 0px;
+}
+
+#sidebar{
+    float: left; 
+    width: 200px; 
+    height: 100vh; 
+    background-color: #f8f9fa;
+    margin-right: 10px;
+}
+
+.sidebar-nav{
+    border-radius: 0px;
+}
+
+.sidebar-icon{
+    margin-right: 10px;
+}
+
+.sidebar-link{
+    text-decoration: none !important;
+}
+
+.login-card{
+    margin-top: 50px;
+}
+
+.reset-card{
+    margin-top: 50px;
+}
+
+input[type=text]{
+    @extend .form-control;
+  }
+
+input[type=password]{
+    @extend .form-control;
+}
+
+select{
+    @extend .form-control;
+}
+
+textarea{
+    @extend .form-control;
+}
+
+.field{
+    margin-top: 10px;
+}
+
+.autocomplete-items {
+    position: absolute;
+    z-index: 99;
+    left: 0;
+    right: 0;
+  }
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+    margin-top: 50px;
+  }
+  .autocomplete-items div:hover {
+    /*when hovering an item:*/
+    background-color: #e9e9e9;
+  }
+  .autocomplete-active {
+    /*when navigating through the items using the arrow keys:*/
+    background-color: DodgerBlue !important;
+    color: #ffffff;
+  }

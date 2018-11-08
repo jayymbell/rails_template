@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="actions float-right">
+    <%= link_to 'Back', users_path, class: 'btn btn-link btn-sm' %>
+      <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-link btn-sm', remote: true %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <% if current_user != @user%>
+      <%if @user.activated %>
+        <span class="text-success">Activated</span> (<%=@user.activated_at.strftime('%m/%d/%Y')%>)
+        <%else%>
+        <span class="text-success">Not Activated</span>
+      <%end%>
+    <%end%>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-2">
+    <div class="field">
+      <strong>First name</strong>
+      <br/>
+      <%= @user.first_name %>
+    </div>
+  </div>
+  <div class="col-sm-2">
+    <div class="field">
+      <strong>Last name</strong>
+      <br/>
+      <%= @user.last_name %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-2">
+    <div class="field">
+      <strong>Email</strong>
+      <br/>
+      <%= @user.email %>
+    </div>
+  </div>
+<div>
+

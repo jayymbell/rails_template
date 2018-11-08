@@ -1,0 +1,9 @@
+$('#dialog h3').html("New Group");
+
+$('.modal-body').html('<%= j render("form", group: @group ) %>');
+
+$('#dialog').modal("show");
+
+$('#dialog').on('shown.bs.modal', function () {
+$('.first_input').focus()
+})

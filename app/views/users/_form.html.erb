@@ -1,0 +1,40 @@
+<%= form_with(model: user, remote: true) do |form| %>
+  <%= render 'layouts/error_messages', object: form.object %>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="actions float-right">
+      <%= form.submit 'Submit', class: 'btn btn-link btn-sm' %>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <div class="field">
+      <%= form.label :first_name %>
+      <%= form.text_field :first_name, id: :user_first_name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :last_name %>
+      <%= form.text_field :last_name, id: :user_last_name %>
+    </div>
+
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email, id: :user_email %>
+    </div>
+
+    <%if current_user.nil? || current_user == @user %>
+      <div class="field">
+        <%= form.label :password %>
+        <%= form.password_field :password, id: :person_password %>
+      </div>
+
+      <div class="field">
+        <%= form.label :password_confirmation %>
+        <%= form.password_field :password_confirmation, id: :person_password_confirmation %>
+      </div>
+    <%end%>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,33 @@
+<div class="row">
+<div class="col-sm-12">
+<h1>Users</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>First name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= link_to user.id, user %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name %></td>
+        <td><%= user.email %></td>
+        <td>
+        <%= link_to user, method: :delete, data: { confirm: 'Are you sure?' } do %>
+          <i class="fa fa-trash text-danger float-right"></i>
+        <%end%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
